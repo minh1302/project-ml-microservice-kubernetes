@@ -1,1 +1,20 @@
-<paste log output from Kubernetes-mediated prediction, here>
+voclabs:~/environment/project-ml-microservice-kubernetes (master) $ . run_kubernetes.sh 
+NAME       STATUS   ROLES                  AGE   VERSION
+minikube   Ready    control-plane,master   20m   v1.23.3
+error: failed to create deployment: deployments.apps "udacity-project-3.0" already exists
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/udacity-project-3     0/1     1            0           8m13s
+deployment.apps/udacity-project-3.0   1/1     1            1           5m31s
+
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/udacity-project-3-797d75ff96     1         1         0       8m13s
+replicaset.apps/udacity-project-3.0-79d747579d   1         1         1       5m31s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   20m
+
+NAME                                       READY   STATUS             RESTARTS   AGE
+pod/udacity-project-3-797d75ff96-bjrrq     0/1     ImagePullBackOff   0          8m13s
+pod/udacity-project-3.0-79d747579d-t95mt   1/1     Running            0          5m31s
+Forwarding from 0.0.0.0:8000 -> 80
+Handling connection for 8000
