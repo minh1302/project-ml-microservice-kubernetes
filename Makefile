@@ -3,17 +3,28 @@
 # Install dependencies in requirements.txt
 # Dockerfile should pass hadolint
 # app.py should pass pylint
-# (Optional) Build a simple integration test
 
+# setup-hadolint:
+# 	sudo apt install linuxbrew-wrapper
+# 	brew install hadolint
+# 	export PATH="/home/${USER}/.linuxbrew/bin:${PATH}"
+# 	. ~/.bashrc
+
+# setup-virtualbox:
+# 	sudo apt-get update
+# 	sudo apt-get install virtualbox
+
+# setup-minikube:
+# 	brew install minikube
 setup:
 	# Create python virtualenv & source it
-	# source ~/.devops/bin/activate
 	python3 -m venv ~/.devops
-
+	. ~/.devops/bin/activate
+	
 install:
 	# This should be run from inside a virtualenv
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip3 install --upgrade pip &&\
+		pip3 install -r requirements.txt
 
 test:
 	# Additional, optional, tests could go here
