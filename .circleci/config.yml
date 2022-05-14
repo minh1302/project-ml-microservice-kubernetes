@@ -41,9 +41,4 @@ jobs:
       - run:
         name: run lint
         command: |
-          . venv/bin/activate      
-
-workflows:
-  default:
-    jobs:
-      - build
+          . venv/bin/activate   
