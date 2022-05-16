@@ -45,6 +45,107 @@ source .devops/bin/activate
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
+You will need to use Docker to build and upload a containerized application. If you already have this installed and created a docker account, you may skip this step.
+
+1. You’ll need to [create a free docker account](https://hub.docker.com/signup), where you’ll choose a unique username and link your email to a docker account. 
+Your username is your unique docker ID.
+
+2. To install the latest version of docker, choose the Community Edition (CE) for your operating system, on [docker’s installation site](https://docs.docker.com/v17.12/install/).
+It is also recommended that you install the latest, stable release:
+
+3. After installation, you can verify that you’ve successfully installed docker by printing its version in your terminal: 
+```bash
+docker --version
+
 * Setup and Configure Kubernetes locally
+To run a Kubernetes cluster locally, for testing and project purposes, you need the Kubernetes package, Minikube. 
+
+This operates in a virtual machine and so you will need to download two things: 
+    A virtual machine (aka a hypervisor) then minikube. 
+    
+Thorough installation instructions can be found here. 
+Here is how I installed minikube:
+
+1. Install VirtualBox:
+    For Mac & Linux:
+```bash
+brew cask install virtualbox
+```
+For Windows, I recommend using a [Windows host](https://www.virtualbox.org/wiki/Downloads).
+
+2. Install minikube:
+    For Mac & Linux:
+```bash
+brew cask install minikube
+```
+For Windows, I recommend using the [Windows installer](https://kubernetes.io/docs/tasks/tools/install-minikube/).
+
+3. Configure Kubernetes to Run Locally
+
+You should have a virtual machine like VirtualBox and minikube installed, 
+as per the project environmet instructions. To start a local cluster, type the terminal command: 
+```bash
+minikube start.
+```
+
+After minikube starts, a cluster should be running locally. 
+You can check that you have one cluster running by typing ```kubectl config view``` where you should see at least one cluster with a certificate-authority and server.
+
+This is a short task, but it may take some time to configure Kubernetes, and so this deserves its own task number.
+
 * Create Flask app in Container
+
+Complete the following steps to get Docker running locally
+
+1. Step 1: Build image and add a descriptive tag
+docker build -t minh1302/udacity-project-3 .
+
+2. Step 2:  List docker images
+docker image ls
+
+3. Step 3:  Run flask app
+docker run -p 8000:80 minh1302/udacity-project-3
+
 * Run via kubectl
+Deploy with Kubernetes and Save Output Logs
+
+Now that you’ve uploaded a docker image and configured Kubernetes so that a cluster is running, 
+you’ll be able to deploy your application on the Kubernetes cluster. 
+
+This involves running your containerized application using kubectl, 
+which is a command line interface for interacting with Kubernetes clusters.
+```run_kubernetes.sh```
+
+To deploy this application using kubectl, open and complete the file, run_kubernetes.sh:
+
+The steps will be somewhat similar to what you did in both run_docker.sh and upload_docker.sh but specific to kubernetes clusters. Within run_kubernetes.sh, complete the following steps:
+
+
+Define a dockerpath which will be “/path”, 
+this should be the same name as your uploaded repository (the same as in upload_docker.sh)
+
+Run the docker container with kubectl; 
+you’ll have to specify the container and the port
+
+List the kubernetes pods
+Forward the container port to a host port, using the same ports as before
+After completing the code, call the script ./run_kubernetes.sh. 
+
+This assumes you have a local cluster configured and running. 
+This script should create a pod with a name you specify and you may get an initial output 
+
+Initially, your pod may be in the process of being created, as indicated by STATUS: ContainerCreating, but you just have to wait a few minutes until the pod is ready, then you can run the script again.
+
+Waiting: You can check on your pod’s status with a call to kubectl get pod and you should see the status change to Running. Then you can run the full ./run_kuberenets.sh script again.
+
+Make a prediction
+After you’ve called run_kubernetes.sh, and a pod is up and running, make a prediction using a separate terminal tab, and a call to ./make_prediction.sh, as you did before.
+
+kubernetes.out.txt
+After running a prediction via Kubernetes deployment, what do you see in your main terminal window?
+
+Copy the text output after calling run_kubernetes.sh and paste it into a file kubernetes_out.txt. 
+This will be the second (out of two) text files that are required for submission. 
+
+This output might look quite different from docker_out.txt; 
+this new file should include your pod’s name and status, as well as the port forwarding and handling text.
