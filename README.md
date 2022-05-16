@@ -34,16 +34,6 @@ python3 -m pip install --user virtualenv
 python3 -m virtualenv --python=<path-to-Python3.7> .devops
 source .devops/bin/activate
 
-* With windows
-
-Activate python env
-C:\Users\User\.devops\Scripts\activate
-
-cd /d "Path to project folder"
-
-install gnuwin32 and add make path to windows environment
-http://gnuwin32.sourceforge.net/packages/make.htm
-```
 * Run `make install` to install the necessary dependencies
 
 ### Running `app.py`
