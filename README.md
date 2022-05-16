@@ -159,3 +159,33 @@ Then you can run the full ./run_kuberenets.sh script again.
 #### Make a prediction
 After you’ve called run_kubernetes.sh, and a pod is up and running, make a prediction using a separate terminal tab, 
 and a call to ./make_prediction.sh, as you did before.
+
+### RUN & GET PREDICTION WITH DOCKER
+####run-docker:
+```. run_docker.sh```
+
+####make-prediction:
+```. make_prediction.sh```
+
+####upload-docker:
+```. upload_docker.sh```
+
+### RUN & GET PREDICTION WITH KUBENETES (With uploaded docker)
+####start-minikube:
+	To start a local cluster, type the terminal command:
+
+	```minikube start```
+	
+	After minikube starts, a cluster should be running locally. 
+	You can check that you have one cluster running by typing 
+	```kubectl config view ```
+	where you should see at least one cluster with a certificate-authority and server.
+	
+####run-kubernetes:
+ 	```. run_kubernetes.sh```
+
+####make-prediction:
+```. make_prediction.sh```
+
+####delete-minikube:
+	```minikube delete```

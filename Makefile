@@ -43,3 +43,30 @@ lint:
 	pylint --disable=R,C,W1203,W1202 app.py
 
 all: install lint test
+
+# run-docker:
+# 	. run_docker.sh
+
+# make-prediction:
+# 	. make_prediction.sh
+
+# upload-docker:
+# 	. upload_docker.sh
+	
+start-minikube:
+	# To start a local cluster, type the terminal command:
+
+	minikube start
+	
+	# After minikube starts, a cluster should be running locally. 
+	# You can check that you have one cluster running by typing kubectl config view 
+	# where you should see at least one cluster with a certificate-authority and server.
+	kubectl config view
+	
+# run-kubernetes:
+# 	. run_kubernetes.sh
+
+delete-minikube:
+	minikube delete
+
+
