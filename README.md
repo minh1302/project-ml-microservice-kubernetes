@@ -107,7 +107,8 @@ docker image ls
 docker run -p 8000:80 minh1302/udacity-project-3
 
 ### Run via kubectl
-Deploy with Kubernetes and Save Output Logs
+
+#### Deploy with Kubernetes and Save Output Logs
 
 Now that you’ve uploaded a docker image and configured Kubernetes so that a cluster is running, 
 you’ll be able to deploy your application on the Kubernetes cluster. 
@@ -118,7 +119,8 @@ which is a command line interface for interacting with Kubernetes clusters.
 
 To deploy this application using kubectl, open and complete the file, run_kubernetes.sh:
 
-The steps will be somewhat similar to what you did in both run_docker.sh and upload_docker.sh but specific to kubernetes clusters. Within run_kubernetes.sh, complete the following steps:
+The steps will be somewhat similar to what you did in both run_docker.sh and upload_docker.sh but specific to kubernetes clusters. 
+Within run_kubernetes.sh, complete the following steps:
 
 
 Define a dockerpath which will be “/path”, 
@@ -134,9 +136,11 @@ After completing the code, call the script ./run_kubernetes.sh.
 This assumes you have a local cluster configured and running. 
 This script should create a pod with a name you specify and you may get an initial output 
 
-Initially, your pod may be in the process of being created, as indicated by STATUS: ContainerCreating, but you just have to wait a few minutes until the pod is ready, then you can run the script again.
+Initially, your pod may be in the process of being created, as indicated by STATUS: ContainerCreating, 
+but you just have to wait a few minutes until the pod is ready, then you can run the script again.
 
-Waiting: You can check on your pod’s status with a call to kubectl get pod and you should see the status change to Running. Then you can run the full ./run_kuberenets.sh script again.
+Waiting: You can check on your pod’s status with a call to kubectl get pod and you should see the status change to Running. 
+Then you can run the full ./run_kuberenets.sh script again.
 
 Make a prediction
 After you’ve called run_kubernetes.sh, and a pod is up and running, make a prediction using a separate terminal tab, and a call to ./make_prediction.sh, as you did before.
