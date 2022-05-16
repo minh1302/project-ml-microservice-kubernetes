@@ -93,7 +93,7 @@ You can check that you have one cluster running by typing ```kubectl config view
 
 This is a short task, but it may take some time to configure Kubernetes, and so this deserves its own task number.
 
-* Create Flask app in Container
+### Create Flask app in Container
 
 Complete the following steps to get Docker running locally
 
@@ -106,7 +106,7 @@ docker image ls
 3. Step 3:  Run flask app
 docker run -p 8000:80 minh1302/udacity-project-3
 
-* Run via kubectl
+### Run via kubectl
 Deploy with Kubernetes and Save Output Logs
 
 Now that you’ve uploaded a docker image and configured Kubernetes so that a cluster is running, 
